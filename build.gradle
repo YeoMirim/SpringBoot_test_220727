@@ -1,0 +1,25 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.2'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+	id 'java'
+}
+
+group = 'com.mirim'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'javax.servlet:jstl'		// jsp 사용 가능해짐
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'   // 내장
+}   // 의존설정을 바꿨으면 gradle을 reflash project 해줘야함
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
